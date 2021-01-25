@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Todo;
 import com.example.demo.repository.TodoRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +13,10 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class TodoService {
 
-    @Autowired
-    private TodoRepository todoRepository;
+    private final TodoRepository todoRepository;
 
     public List<Todo> getAllTodos(){
         log.info("getAllTodos completed");

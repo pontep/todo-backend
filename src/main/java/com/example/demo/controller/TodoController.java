@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Todo;
 import com.example.demo.service.TodoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,14 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class TodoController {
 
-    @Autowired
     private final TodoService todoService;
-
-    public TodoController(TodoService todoService){
-        this.todoService = todoService;
-    }
 
     @GetMapping("/todos")
     public ResponseEntity<?> getAllTodos(){
