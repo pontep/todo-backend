@@ -1,7 +1,10 @@
 package com.example.demo.entity;
 
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +13,9 @@ import javax.persistence.Id;
 
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Todo {
 
     @Id
@@ -22,6 +28,4 @@ public class Todo {
     @NotNull
     private boolean completed = false;
 
-    public Todo(){
-    }
 }

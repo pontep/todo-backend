@@ -22,6 +22,11 @@ public class TodoController {
         return ResponseEntity.ok().body(todos);
     }
 
+    @GetMapping("/todo")
+    public ResponseEntity<?> getTodoById(@RequestParam("id") Long id){
+        return this.todoService.getTodoById(id);
+    }
+
 //    POST: localhost:9000/newTodo?title=Go%20Walking
     @PostMapping("/newTodo")
     public ResponseEntity<?> newTodo(@RequestParam("title") String title){
@@ -32,6 +37,11 @@ public class TodoController {
     @PutMapping("/completingTodo")
     public ResponseEntity<?> completingTodo(@RequestParam("id") Long id){
         return this.todoService.completingTodo(id);
+    }
+
+    @PatchMapping("/patchTodo")
+    public ResponseEntity<?> patchTodo(@RequestParam("todo") Todo todo){
+        return this.todoService.patchTodo(todo);
     }
 
     @DeleteMapping("/deleteTodo")
